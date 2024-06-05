@@ -83,15 +83,18 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                    <input
-                        required='required'
-                        type='number'
-                        id='cost'
-                        value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={onCostChange}>
+                    <div style={{display: 'flex', 'flex-direction': 'row', 'align-items':'center'}}>
+                        <div style={{ margin: '0 .5rem 0 2rem', 'font-size': '18px', 'font-weight': '500'}}>£</div>
+                        <input
+                            required='required'
+                            type='number'
+                            id='cost'
+                            value={cost}
+                            style={{ marginLeft: '0' , size: 10}}
+                            onChange={onCostChange}>
                         </input>
-
+                    </div>
+                    
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>

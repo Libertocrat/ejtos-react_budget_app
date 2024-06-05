@@ -46,27 +46,27 @@ const Budget = () => {
 
     /*** INTERNAL CSS ***/
     const containerStyle = {
-        'background' : '#FED7AA', //Orange 200
-        'border-color' : '#FDBA74', //Orange 300
-        'color' : '#F97316', //Orange 500
+        background : '#FED7AA', //Orange 200
+        borderColor : '#FDBA74', //Orange 300
+        color : '#F97316', //Orange 500
         display: 'flex', 
-        'flex-direction': 'row', 
-        'align-items':'center'
+        flexDirection: 'row', 
+        alignItems:'center'
     }
 
     const inputStyle = {
         width: '50%',
-        'min-width': '80px',
-        'border-width' : '0px',
-        'background' : '#FFEDD5',
-        'color' : '#4D7C0F',
-        'font-weight' : '600'
+        minWidth: '80px',
+        borderWidth : '0px',
+        background : '#FFEDD5',
+        color : '#4D7C0F',
+        fontWeight : '600'
     }
 
     return (
         <div className='alert' style={containerStyle}>
-            <span style={{'font-weight': '400'}}>Budget:</span>
-            <span style={{ margin: '0 .1rem 0 .25rem', 'font-weight': '600', 'color' : '#4D7C0F'}}> £</span>
+            <span style={{fontWeight: '400'}}>Budget:</span>
+            <span style={{ margin: '0 .1rem 0 .25rem', fontWeight: '600', color : '#4D7C0F'}}> £</span>
             <input type="number" step="10" value={newBudget} onChange={handleBudgetChange} style={inputStyle}></input>
         </div>
     );

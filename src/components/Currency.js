@@ -2,7 +2,7 @@
 //import { AppContext } from '../context/AppContext';
 
 // CURRENCY OPTIONS
-const currencyOpt = {
+const currencyOptions = {
     "USD" : "$ Dollar",
     "GBP" : "£ Pound",
     "EUR" : "€ Euro",
@@ -26,40 +26,40 @@ const Currency = () => {
     /*** INTERNAL CSS ***/
     const containerStyle = {
         background: '#D1FAE5',//Emerald 100
-        'border-color': '#34D399', //Emerald 400
+        borderColor: '#34D399', //Emerald 400
         display: 'flex',
-        'flex-direction': 'row',
-        'justify-content': 'left',
+        flexDirection: 'row',
+        justifyContent: 'left',
         color: '#166534',
-        'font-size': 16
+        fontSize: 16
     }
 
     const selectStyle = {
         background: 'inherit',
-        'border-width': 0,
+        borderWidth: 0,
         color: 'inherit',
-        'font-size': 'inherit',
-        'font-weight': '600'
+        fontSize: 'inherit',
+        fontWeight: '600'
     }
 
     const optionStyle = {
         background: 'inherit',
         color: 'inherit',
-        'font-size': 'inherit'
+        fontSize: 'inherit'
     }
 
     const labelStyle = {
         color: 'inherit',
-        'font-weight': '500'
+        fontWeight: '500'
     }
 
     /*** COMPONENT OUTPUT ***/
     return(
         <div className='alert' style={containerStyle}>
-            <label for="currency_sel" style={labelStyle}>Currency: </label>
+            <span style={labelStyle}>Currency: </span>
             <select id="currency_sel" onChange={onCurrencyChange} style={selectStyle}>
-                {Object.keys(currencyOpt).map((currency, index) => (
-                    <option value={currency} index={index} style={optionStyle}>{currencyOpt[currency]}</option>
+                {Object.keys(currencyOptions).map((currency, index) => (
+                    <option value={currency} key={index} style={optionStyle}>{currencyOptions[currency]}</option>
                 ))
                 }
             </select>

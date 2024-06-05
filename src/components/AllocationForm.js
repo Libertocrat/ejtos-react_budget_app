@@ -83,8 +83,8 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                    <div style={{display: 'flex', 'flex-direction': 'row', 'align-items':'center'}}>
-                        <div style={{ margin: '0 .5rem 0 2rem', 'font-size': '18px', 'font-weight': '500'}}>£</div>
+                    <div style={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
+                        <div style={{ margin: '0 .5rem 0 2rem', fontSize: '18px', fontWeight: '500'}}>£</div>
                         <input
                             required='required'
                             type='number'

@@ -1,5 +1,5 @@
-//import React, { useContext, useState } from 'react';
-//import { AppContext } from '../context/AppContext';
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../context/AppContext';
 
 // CURRENCY OPTIONS
 const currencyOptions = {
@@ -11,6 +11,9 @@ const currencyOptions = {
 
 const Currency = () => {
 
+    const { dispatch, currency, currencyOptions } = useContext(AppContext);
+    const [code, setCode] = useState(currency);
+
     // Currency selection handler
     const onCurrencyChange = (event) => {
         /*
@@ -19,8 +22,24 @@ const Currency = () => {
         let currency = event.target[index].value;
         console.log("Selected currency: " + currency + " : " + label + ". Index " + index);
         */
+       let currencyCode = event.target.value;
 
-        // Dispatch selected currency
+        // Check if selected currency is valid
+        if (currencyCode in currencyOptions) {
+
+            // Update selected currency
+            setCode(currencyCode);
+
+            // Dispatch selected currency
+            dispatch({
+                type: 'CHG_CURRENCY',
+                payload: currencyCode
+            });
+        }
+        else {
+            alert("'" + currencyCode + "' is not a supported currency.");
+        }
+        
     }
 
     /*** INTERNAL CSS ***/
@@ -57,7 +76,7 @@ const Currency = () => {
     return(
         <div className='alert' style={containerStyle}>
             <span style={labelStyle}>Currency: </span>
-            <select id="currency_sel" onChange={onCurrencyChange} style={selectStyle}>
+            <select value={code} onChange={onCurrencyChange} style={selectStyle}>
                 {Object.keys(currencyOptions).map((currency, index) => (
                     <option value={currency} key={index} style={optionStyle}>{currencyOptions[currency]}</option>
                 ))

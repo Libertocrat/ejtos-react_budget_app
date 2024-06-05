@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch, remaining, currency } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -84,7 +84,7 @@ const AllocationForm = (props) => {
                   </select>
 
                     <div style={{display: 'flex', flexDirection: 'row', alignItems:'center'}}>
-                        <div style={{ margin: '0 .5rem 0 2rem', fontSize: '18px', fontWeight: '500'}}>£</div>
+                        <div style={{ margin: '0 .5rem 0 2rem', fontSize: '18px', fontWeight: '500'}}>{currency}</div>
                         <input
                             required='required'
                             type='number'
